@@ -1,37 +1,30 @@
+apply plugin: "com.github.ben-manes.versions"
+
 buildscript {
     repositories {
         jcenter()
+        google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.3'
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
+        classpath 'com.android.tools.build:gradle:4.1.2'
+        classpath 'com.github.ben-manes:gradle-versions-plugin:0.36.0'
+        classpath 'com.vanniktech:gradle-maven-publish-plugin:0.14.2'
     }
 }
 
-allprojects {
+subprojects {
     repositories {
         jcenter()
-        maven {
-            url "https://maven.google.com"
-        }
+        google()
     }
-}
-
-task clean(type: Delete) {
-    delete rootProject.buildDir
 }
 
 ext {
-    compileSdkVersion = 26
-    buildToolsVersion = '26.0.1'
-    minSdkVersion = 9
-    targetSdkVersion = 26
-    sourceCompatibilityVersion = '1.7'
-    targetCompatibilityVersion = '1.7'
-    supportLibraryVersion = '26.0.2'
-
-    githubUrl = 'https://github.com/matthiasrobbers/shortbread'
-    gitUrl = 'https://github.com/matthiasrobbers/shortbread.git'
-    libraryVersion = '1.0.2'
+    compileSdkVersion = 30
+    buildToolsVersion = '30.0.3'
+    minSdkVersion = 14
+    sourceCompatibilityVersion = JavaVersion.VERSION_1_8
+    targetCompatibilityVersion = JavaVersion.VERSION_1_8
+    autoServiceVersion = '1.0-rc7'
+    incapVersion = '0.3'
 }
